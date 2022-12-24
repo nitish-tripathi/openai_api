@@ -2,7 +2,7 @@
 const OpenAI = require('openai');
 const { Configuration, OpenAIApi } = OpenAI;
 
-
+require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -12,7 +12,7 @@ const port = 3001;
 
 const configuration = new Configuration({
     organization: "org-JLJeBpUQg79JzEmM6B7I0OaA",
-    apiKey: "",
+    apiKey: `${process.env.OPENAI_API_KEY}`,
 });
 const openai = new OpenAIApi(configuration);
 //const response = await openai.listEngines();
